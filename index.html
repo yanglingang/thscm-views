@@ -1,6 +1,7 @@
 <!doctype html>
 <html class="no-js">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title></title>
     <meta name="description" content="">
@@ -8,85 +9,168 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/Metro-UI-CSS/css/metro-bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/Metro-UI-CSS/css/metro-bootstrap-responsive.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
-  </head>
-  <body ng-app="vtoneWorldcomApp">
+</head>
+
+<body ng-app="vtoneWorldcomApp" class="metro">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
     <!-- Add your site or application content here -->
-<div class="row">
-  <div class="col-md-12">
-  <nav class="navbar navbar-default" role="navigation">
-  <div class="container-fluid">
-  <div class="col-md-1"></div>
-  <div class="col-md-10">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">供应链管理平台2 <small>v1.0</small></a>
-    </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" ng-controller="MenuLeftCtrl">
-      <ul class="nav navbar-nav" >
-        <li ng-repeat="menu in MenuLeftData" class="{{menu.class}}">
-          <a ng-if="menu.class != 'dropdown'" href="{{menu.href}}">{{menu.descr}}</a>
-          <a ng-if="menu.class == 'dropdown'" href="#" class="dropdown-toggle" data-toggle="dropdown">{{menu.descr}} <span class="caret"></span></a>
-           <ul ng-if="menu.class == 'dropdown'" class="dropdown-menu" role="menu">
-            <li ng-repeat="submenu in menu.submenu"><a href="#">{{submenu.descr}}</a></li>
-          </ul>
-        </li>
-      </ul>
-      <form class="navbar-form navbar-left" role="search">
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="输入货号或订单号">
-        <span class="input-group-btn">
-          <button class="btn btn-default" type="button">Go</button>
-        </span>
-      </div><!-- /input-group -->
-      </form>
-      <ul class="nav navbar-nav navbar-right">
-      <li><a href="#">通和天下</a></li>
-      <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">客服一号 <span class="caret"></span></a>
-        <ul class="dropdown-menu" role="menu">
-        <li><a href="#">账号信息</a></li>
-        <li><a href="#">修改密码</a></li>
-        <li class="divider"></li>
-        <li><a href="#">退出</a></li>
+    <nav class="navigation-bar navbar-fixed-top">
+        <nav class="navigation-bar-content" ng-controller="MenuLeftCtrl">
+            <div class="element">
+                <a class="dropdown-toggle" href="#">简明供应链管理</a>
+                <ul class="dropdown-menu" data-role="dropdown">
+                    <li><a href="#">Main</a>
+                    </li>
+                    <li><a href="#">File Open</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li><a href="#">Print...</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li><a href="#">Exit</a>
+                    </li>
+                </ul>
+            </div>
+
+            <span class="element-divider"></span>
+            <a class="element brand" href="#"><span class="icon-home"></span></a>
+            <span class="element-divider"></span>
+
+            <div ng-repeat="menu in MenuLeftData" ng-class="{element: menu.class == 'dropdown'}">
+                <a ng-if="menu.class != 'dropdown'" href="{{menu.href}}" class="element brand">{{menu.descr}}</a>
+                <a ng-if="menu.class == 'dropdown'" href="#" class="dropdown-toggle">{{menu.descr}}</a>
+                <ul ng-if="menu.class == 'dropdown'" class="dropdown-menu" data-role="dropdown">
+                    <li ng-repeat="submenu in menu.submenu"><a href="#">{{submenu.descr}}</a>
+                    </li>
+                </ul>
+            </div>
+
+
+
+
+            <div class="element place-right">
+                <a class="dropdown-toggle" href="#">
+                    <span class="icon-cog"></span>
+                </a>
+                <ul class="dropdown-menu place-right" data-role="dropdown">
+                    <li><a href="#">Products</a>
+                    </li>
+                    <li><a href="#">Download</a>
+                    </li>
+                    <li><a href="#">Support</a>
+                    </li>
+                    <li><a href="#">Buy Now</a>
+                    </li>
+                </ul>
+            </div>
+
+
+
+
+
+
+            <span class="element-divider place-right"></span>
+            <a class="element place-right" href="#"><span class="icon-locked-2"></span></a>
+
+
+            <a class="element place-right" href="#"><span class="icon-spin"></span></a>
+            <a class="element place-right" href="#"><span class="icon-printer"></span></a>
+
+            <span class="element-divider place-right"></span>
+            <div class="element input-element place-right">
+                <form>
+                    <div class="input-control text">
+                        <input type="text" placeholder="Search...">
+                        <button class="btn-search"></button>
+                    </div>
+                </form>
+            </div>
+            <button class="element image-button image-left place-right">
+                Sergey Pimenov
+            </button>
+
+        </nav>
+    </nav>
+
+    <nav class="sidebar dark" id="sidebar">
+        <ul>
+            <li class="title">Items Group 1</li>
+            <li class="active"><a href="#"><i class="icon-home"></i>Dashboard</a>
+            </li>
+            <li class="stick bg-red"><a href="#"><i class="icon-cog"></i>Layouts</a>
+            </li>
+            <li class="stick bg-yellow">
+                <a class="dropdown-toggle" href="#"><i class="icon-tree-view"></i>Sub menu</a>
+                <ul class="dropdown-menu" data-role="dropdown">
+                    <li><a href="">Subitem 1</a>
+                    </li>
+                    <li><a href="">Subitem 2</a>
+                    </li>
+                    <li><a href="">Subitem 3</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li><a href="">Subitem 4</a>
+                    </li>
+                    <li class="disabled"><a href="">Subitem 4</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="stick bg-green"><a href="#">Thread item</a>
+            </li>
+            <li class="disabled"><a href="#">Disabled item</a>
+            </li>
+
+            <li class="title">Items Group 2</li>
+            <li><a href="#">Other Item 1</a>
+            </li>
+            <li><a href="#">Other item 2</a>
+            </li>
+            <li><a href="#">Other item 3</a>
+            </li>
+            <li>
+                <a class="dropdown-toggle" href="#">Sub menu 2</a>
+                <ul class="dropdown-menu" data-role="dropdown">
+                    <li><a href="">Subitem 1</a>
+                    </li>
+                    <li><a href="">Subitem 2</a>
+                    </li>
+                    <li><a href="">Subitem 3</a>
+                    </li>
+                </ul>
+            </li>
         </ul>
-      </li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div>
-  <div class="col-md-1"></div>
-  </div><!-- /.container -->
-</nav>
-</div>
-</div>
+    </nav>
 
+
+    <div id="main">123123123123123123</div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-     <script>
-       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    <script>
+    (function(i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function() {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-       ga('create', 'UA-XXXXX-X');
-       ga('send', 'pageview');
+    ga('create', 'UA-XXXXX-X');
+    ga('send', 'pageview');
     </script>
 
     <!-- build:js(.) scripts/oldieshim.js -->
@@ -100,7 +184,6 @@
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/angular-aria/angular-aria.js"></script>
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
@@ -109,13 +192,16 @@
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/jquery-ui/jquery-ui.js"></script>
+    <script src="bower_components/Metro-UI-CSS/min/metro.min.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/controllers/about.js"></script>
-        <!-- endbuild -->
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/controllers/about.js"></script>
+    <!-- endbuild -->
 </body>
+
 </html>

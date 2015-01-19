@@ -77,3 +77,26 @@ body {
     border-bottom: 0;
   }
 }
+
+.metro .grid {
+  margin:0px;
+}
+.metro .grid .row{
+  margin:0px;
+}
+.metro .grid .row [class*="span"] {
+  margin:0px;
+}
+
+#sidebar{
+  position:absolute;
+  top:45px;
+  width:200px;
+  overflow:auto;
+}
+#main{
+  position:absolute;
+  top:45px;
+  left:200px;
+  overflow:auto;
+}
