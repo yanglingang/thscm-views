@@ -19,39 +19,39 @@ angular.module('vtoneWorldcomApp')
 angular.module('vtoneWorldcomApp')
     .controller('MenuLeftCtrl', function($scope) {
         $scope.MenuLeftData = [{
-                "descr": "首页",
-                "href": "#",
-                "class": "active"
+                'descr': '首页',
+                'href': '#',
+                'class': 'active'
             }, {
-                "descr": "手工建单",
-                "href": "#",
-                "class": ""
+                'descr': '手工建单',
+                'href': '#',
+                'class': ''
             }, {
-                "descr": "订单记录",
-                "href": "#",
-                "class": "dropdown",
-                "submenu": [{
-                    "descr": "Action"
+                'descr': '订单记录',
+                'href': '#',
+                'class': 'dropdown',
+                'submenu': [{
+                    'descr': 'Action'
                 }, {
-                    "descr": "Other Action"
+                    'descr': 'Other Action'
                 }]
             }, {
-                "descr": "零售商品",
-                "href": "#",
-                "class": "dropdown",
-                "submenu": [{
-                    "descr": "Action"
+                'descr': '零售商品',
+                'href': '#',
+                'class': 'dropdown',
+                'submenu': [{
+                    'descr': 'Action'
                 }, {
-                    "descr": "Other Action"
+                    'descr': 'Other Action'
                 }]
             }, {
-                "descr": "订单审核",
-                "href": "#",
-                "class": "dropdown",
-                "submenu": [{
-                    "descr": "Action"
+                'descr': '订单审核',
+                'href': '#',
+                'class': 'dropdown',
+                'submenu': [{
+                    'descr': 'Action'
                 }, {
-                    "descr": "Other Action"
+                    'descr': 'Other Action'
                 }]
             }
 
@@ -59,11 +59,11 @@ angular.module('vtoneWorldcomApp')
     });
 
 function layout() {
-    $("#main").css("width", $(window).width() - 200);
-    $("#sidebar").css("height", $(window).height() - 45);
-    $("#main").css("height", $(window).height() - 45);
+    $('#main').css('width', $(window).width() - 200);
+    $('#sidebar').css('height', $(window).height() - 45);
+    $('#main').css('height', $(window).height() - 45);
 }
-jQuery(function($) {
+$(function($) {
     $(document).ready(function() {
         layout();
     });
