@@ -16,15 +16,20 @@ angular.module('vtoneWorldcomApp')
         ];
     });
 
-angular.module('vtoneWorldcomApp').controller('TopMenuCtrl', ['$scope','$http', function($scope,$http) {
-      $http.get('scripts/menu.json').
-        success(function(data, status, headers, config) {
-            $scope.TopMenuData = data;
-        }).
-        error(function(data, status, headers, config) {
-            alert(status);
+angular.module('vtoneWorldcomApp').controller('TopMenuCtrl', ['$scope', '$http', function($scope, $http) {
+    $http.get('scripts/menu.json').
+    success(function(data, status, headers, config) {
+        $scope.TopMenuData = data;
+        $scope.$watch('TopMenuData', function() {
+            setTimeout(function(){
+                $(".TopMenu").dropdown();
+            },1000);
         });
- }]);
+    }).
+    error(function(data, status, headers, config) {
+        alert(status);
+    });
+}]);
 
 
 function layout() {

@@ -48,14 +48,13 @@
             <a class="element brand" href="#"><span class="icon-home"></span></a>
             <span class="element-divider"></span>
 
-            <div ng-repeat="menu in TopMenuData" ng-class="{element: menu.items != 'null'}">
-                <a href="#" ng-class="{'dropdown-toggle': menu.items != 'null','element brand':menu.items == 'null'}">{{menu.menuName}}</a>
-                <ul class="dropdown-menu dark" data-role="dropdown">
+            <li ng-repeat="menu in TopMenuData" ng-class="{element: menu.items != 'null'}">
+                <a href="#" data-toggle="dropdown" ng-class="{'dropdown-toggle': menu.items != 'null','element brand':menu.items == 'null'}">{{menu.menuName}}</a>
+                <ul class="dropdown-menu dark TopMenu" data-role="dropdown" data-effect='fade'>
                     <li ng-repeat="submenu in menu.items"><a href="#">{{submenu.menuName}}</a>
                     </li>
                 </ul>
-            </div>
-
+            </li>
 
             <div class="element place-right">
                 <a class="dropdown-toggle" href="#">
@@ -93,19 +92,19 @@
     </nav>
     <div class="accordion span3 place-left margin5" data-role="accordion" id="sidebar">
         <div class="accordion-frame">
-            <a class="heading bg-cyan fg-white" href="#"><i class="icon-rocket"></i> 异常订单</a>
+            <a class="heading bg-lightBlue fg-white" href="#"><i class="icon-rocket"></i> 异常订单</a>
             <div class="content" style="display: block;">
                 <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</p>
             </div>
         </div>
         <div class="accordion-frame">
-            <a class="heading bg-cyan fg-white collapsed" href="#"><i class="icon-cog"></i> Item #2</a>
+            <a class="heading bg-lightBlue fg-white collapsed" href="#"><i class="icon-cog"></i> Item #2</a>
             <div class="content" style="display: none;">
                 <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut.</p>
             </div>
         </div>
         <div class="accordion-frame">
-            <a class="heading bg-cyan fg-white collapsed" href="#"><i class="icon-cart"></i> Item #3</a>
+            <a class="heading bg-lightBlue fg-white collapsed" href="#"><i class="icon-cart"></i> Item #3</a>
             <div class="content" style="display: none;">
                 <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut.</p>
                 <button class="primary">Activate the account</button>
@@ -129,7 +128,7 @@
         <div class="carousel" data-role="carousel" data-interval="false" id="main_carouse">
             <div class="slide">
                 <div class="panel" data-role="panel">
-                    <div class="panel-header bg-emerald fg-white">
+                    <div class="panel-header bg-lightBlue fg-white">
                         条件选择
                     </div>
                     <div class="panel-content" style="display: block;">
@@ -137,7 +136,7 @@
                     </div>
                 </div>
                 <div class="panel" data-role="panel">
-                    <div class="panel-header bg-teal fg-white">
+                    <div class="panel-header bg-lightBlue fg-white">
                         查询结果
                     </div>
                     <div class="panel-content" style="display: block;">
@@ -145,7 +144,7 @@
                     </div>
                 </div>
                 <div class="panel" data-role="panel">
-                    <div class="panel-header bg-crimson fg-white">
+                    <div class="panel-header bg-lightBlue fg-white">
                         明细信息
                     </div>
                     <div class="panel-content" style="display: block;">
