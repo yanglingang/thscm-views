@@ -27,7 +27,7 @@
     <!-- Add your site or application content here -->
 
     <nav class="navbar navigation-bar dark navbar-fixed-top">
-        <nav class="navigation-bar-content" ng-controller="MenuLeftCtrl">
+        <nav class="navigation-bar-content" ng-controller="TopMenuCtrl">
             <div class="element">
                 <a class="dropdown-toggle" href="#">简明供应链管理</a>
                 <ul class="dropdown-menu dark" data-role="dropdown">
@@ -48,16 +48,13 @@
             <a class="element brand" href="#"><span class="icon-home"></span></a>
             <span class="element-divider"></span>
 
-            <div ng-repeat="menu in MenuLeftData" ng-class="{element: menu.class == 'dropdown'}">
-                <a ng-if="menu.class != 'dropdown'" href="{{menu.href}}" class="element brand">{{menu.descr}}</a>
-                <a ng-if="menu.class == 'dropdown'" href="#" class="dropdown-toggle">{{menu.descr}}</a>
-                <ul ng-if="menu.class == 'dropdown'" class="dropdown-menu dark" data-role="dropdown">
-                    <li ng-repeat="submenu in menu.submenu"><a href="#">{{submenu.descr}}</a>
+            <div ng-repeat="menu in TopMenuData" ng-class="{element: menu.items != 'null'}">
+                <a href="#" ng-class="{'dropdown-toggle': menu.items != 'null','element brand':menu.items == 'null'}">{{menu.menuName}}</a>
+                <ul class="dropdown-menu dark" data-role="dropdown">
+                    <li ng-repeat="submenu in menu.items"><a href="#">{{submenu.menuName}}</a>
                     </li>
                 </ul>
             </div>
-
-
 
 
             <div class="element place-right">
@@ -89,14 +86,7 @@
             <a class="element place-right" href="#"><span class="icon-printer"></span></a>
 
             <span class="element-divider place-right"></span>
-            <div class="element input-element place-right">
-                <form>
-                    <div class="input-control text">
-                        <input type="text" placeholder="Search...">
-                        <button class="btn-search"></button>
-                    </div>
-                </form>
-            </div>
+
             <button class="element image-button image-left place-right icon-user"> Sergey Pimenov</button>
 
         </nav>
