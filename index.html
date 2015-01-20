@@ -11,6 +11,7 @@
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/Metro-UI-CSS/css/metro-bootstrap.css" />
     <link rel="stylesheet" href="bower_components/Metro-UI-CSS/css/metro-bootstrap-responsive.css" />
+    <link rel="stylesheet" href="bower_components/Metro-UI-CSS/css/iconFont.min.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -25,11 +26,11 @@
 
     <!-- Add your site or application content here -->
 
-    <nav class="navigation-bar navbar-fixed-top">
+    <nav class="navbar navigation-bar dark navbar-fixed-top">
         <nav class="navigation-bar-content" ng-controller="MenuLeftCtrl">
             <div class="element">
                 <a class="dropdown-toggle" href="#">简明供应链管理</a>
-                <ul class="dropdown-menu" data-role="dropdown">
+                <ul class="dropdown-menu dark" data-role="dropdown">
                     <li><a href="#">Main</a>
                     </li>
                     <li><a href="#">File Open</a>
@@ -50,7 +51,7 @@
             <div ng-repeat="menu in MenuLeftData" ng-class="{element: menu.class == 'dropdown'}">
                 <a ng-if="menu.class != 'dropdown'" href="{{menu.href}}" class="element brand">{{menu.descr}}</a>
                 <a ng-if="menu.class == 'dropdown'" href="#" class="dropdown-toggle">{{menu.descr}}</a>
-                <ul ng-if="menu.class == 'dropdown'" class="dropdown-menu" data-role="dropdown">
+                <ul ng-if="menu.class == 'dropdown'" class="dropdown-menu dark" data-role="dropdown">
                     <li ng-repeat="submenu in menu.submenu"><a href="#">{{submenu.descr}}</a>
                     </li>
                 </ul>
@@ -63,7 +64,7 @@
                 <a class="dropdown-toggle" href="#">
                     <span class="icon-cog"></span>
                 </a>
-                <ul class="dropdown-menu place-right" data-role="dropdown">
+                <ul class="dropdown-menu place-right dark" data-role="dropdown">
                     <li><a href="#">Products</a>
                     </li>
                     <li><a href="#">Download</a>
@@ -102,58 +103,86 @@
 
         </nav>
     </nav>
-
-    <nav class="sidebar dark" id="sidebar">
-        <ul>
-            <li class="title">Items Group 1</li>
-            <li class="active"><a href="#"><i class="icon-home"></i>Dashboard</a>
-            </li>
-            <li class="stick bg-red"><a href="#"><i class="icon-cog"></i>Layouts</a>
-            </li>
-            <li class="stick bg-yellow">
-                <a class="dropdown-toggle" href="#"><i class="icon-tree-view"></i>Sub menu</a>
-                <ul class="dropdown-menu" data-role="dropdown">
-                    <li><a href="">Subitem 1</a>
-                    </li>
-                    <li><a href="">Subitem 2</a>
-                    </li>
-                    <li><a href="">Subitem 3</a>
-                    </li>
-                    <li class="divider"></li>
-                    <li><a href="">Subitem 4</a>
-                    </li>
-                    <li class="disabled"><a href="">Subitem 4</a>
-                    </li>
-                </ul>
-            </li>
-            <li class="stick bg-green"><a href="#">Thread item</a>
-            </li>
-            <li class="disabled"><a href="#">Disabled item</a>
-            </li>
-
-            <li class="title">Items Group 2</li>
-            <li><a href="#">Other Item 1</a>
-            </li>
-            <li><a href="#">Other item 2</a>
-            </li>
-            <li><a href="#">Other item 3</a>
-            </li>
-            <li>
-                <a class="dropdown-toggle" href="#">Sub menu 2</a>
-                <ul class="dropdown-menu" data-role="dropdown">
-                    <li><a href="">Subitem 1</a>
-                    </li>
-                    <li><a href="">Subitem 2</a>
-                    </li>
-                    <li><a href="">Subitem 3</a>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-    </nav>
+    <div class="accordion span3 place-left margin5" data-role="accordion" id="sidebar">
+        <div class="accordion-frame">
+            <a class="heading bg-cyan fg-white" href="#"><i class="icon-rocket"></i> 异常订单</a>
+            <div class="content" style="display: block;">
+                <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</p>
+            </div>
+        </div>
+        <div class="accordion-frame">
+            <a class="heading bg-cyan fg-white collapsed" href="#"><i class="icon-cog"></i> Item #2</a>
+            <div class="content" style="display: none;">
+                <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut.</p>
+            </div>
+        </div>
+        <div class="accordion-frame">
+            <a class="heading bg-cyan fg-white collapsed" href="#"><i class="icon-cart"></i> Item #3</a>
+            <div class="content" style="display: none;">
+                <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut.</p>
+                <button class="primary">Activate the account</button>
+            </div>
+        </div>
+    </div>
 
 
-    <div id="main">123123123123123123</div>
+    <div id="super_nav" class="markers square">
+        <div class="button-set" data-role="button-group">
+            <button onclick="javascript:moveMainCarouse(0)" class="active">首页</button>
+            <button onclick="javascript:moveMainCarouse(1)">One</button>
+            <button onclick="javascript:moveMainCarouse(2)">Two</button>
+            <button onclick="javascript:moveMainCarouse(3)">Three</button>
+            <button onclick="javascript:moveMainCarouse(4)">Four</button>
+            <button onclick="javascript:moveMainCarouse(5)">Five</button>
+        </div>
+    </div>
+
+    <div id="main">
+        <div class="carousel" data-role="carousel" data-interval="false" id="main_carouse">
+            <div class="slide">
+                <div class="panel" data-role="panel">
+                    <div class="panel-header bg-emerald fg-white">
+                        条件选择
+                    </div>
+                    <div class="panel-content" style="display: block;">
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                    </div>
+                </div>
+                <div class="panel" data-role="panel">
+                    <div class="panel-header bg-teal fg-white">
+                        查询结果
+                    </div>
+                    <div class="panel-content" style="display: block;">
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                    </div>
+                </div>
+                <div class="panel" data-role="panel">
+                    <div class="panel-header bg-crimson fg-white">
+                        明细信息
+                    </div>
+                    <div class="panel-content" style="display: block;">
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide">
+                2
+            </div>
+            <div class="slide">
+                3
+            </div>
+            <div class="slide">
+                4
+            </div>
+            <div class="slide">
+                5
+            </div>
+            <div class="slide">
+                6
+            </div>
+        </div>
+    </div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
     <script>

@@ -59,16 +59,27 @@ angular.module('vtoneWorldcomApp')
     });
 
 function layout() {
-    $('#main').css('width', $(window).width() - 200);
-    $('#sidebar').css('height', $(window).height() - 45);
-    $('#main').css('height', $(window).height() - 45);
+    $('#main').css('width', $(window).width() - 240);
+    $('#main').css('height', $(window).height() - 82);
+    $('#main_carouse').css('height', $(window).height() - 92);
+}
+function moveMainCarouse(index) {
+    $('#main_carouse').find(".markers").find("a").eq(index).trigger('click');
 }
 $(function($) {
     $(document).ready(function() {
         layout();
+        $('#main_carouse').find(".markers").css("display","none");
     });
 });
 
 $(window).resize(function() {
     layout();
+});
+$('#main_carouse').carousel({
+    auto: false,
+    stop: true,
+    markers: {
+        type: "square"
+    }
 });
