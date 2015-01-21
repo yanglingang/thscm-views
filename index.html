@@ -51,7 +51,14 @@
             <li ng-repeat="menu in TopMenuData" ng-class="{element: menu.items != 'null'}">
                 <a href="#" data-toggle="dropdown" ng-class="{'dropdown-toggle': menu.items != 'null','element brand':menu.items == 'null'}">{{menu.menuName}}</a>
                 <ul class="dropdown-menu dark TopMenu" data-role="dropdown" data-effect='fade'>
-                    <li ng-repeat="submenu in menu.items"><a href="#">{{submenu.menuName}}</a>
+                    <li ng-repeat="submenu in menu.items">
+                        <a href="#" ng-if="submenu.items != 'null' && submenu.items.length>0" data-toggle="dropdown" class="dropdown-toggle">{{submenu.menuName}}</a>
+                        <a href="#" ng-if="submenu.items == 'null' || submenu.items.length==0">{{submenu.menuName}}</a>
+                        <ul ng-if="submenu.items != 'null' && submenu.items.length>0" class="dropdown-menu dark TopMenu" data-role="dropdown" data-effect='fade'>
+                            <li ng-repeat="submenu2 in submenu.items">
+                                <a href="#">{{submenu2.menuName}}</a>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </li>
