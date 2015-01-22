@@ -32,7 +32,7 @@
             <div class="element">
                 <a class="dropdown-toggle" href="#">SE200</a>
                 <ul class="dropdown-menu dark" data-role="dropdown">
-                    <li><a href="#">Main</a>
+                    <li><a href="#"><i class="fa-edit"></i> Main</a>
                     </li>
                     <li><a href="#">File Open</a>
                     </li>
@@ -49,7 +49,7 @@
             <a class="element brand" href="#"><span class="icon-home"></span></a>
             <span class="element-divider"></span>
 
-            <li ng-repeat="menu in TopMenuData" ng-class="{element: menu.items != 'null'}">
+            <li ng-repeat="menu in TopMenuData" ng-class="{element: menu.items != 'null' || submenu.items.length==0}">
                 <a href="#" data-toggle="dropdown" ng-class="{'dropdown-toggle': menu.items != 'null','element brand':menu.items == 'null'}">{{menu.menuName}}</a>
                 <ul class="dropdown-menu dark TopMenu" data-role="dropdown" data-effect='fade'>
                     <li ng-repeat="submenu in menu.items">
@@ -98,24 +98,18 @@
 
         </nav>
     </nav>
-    <div class="accordion span3 place-left margin5" data-role="accordion" id="sidebar">
-        <div class="accordion-frame">
-            <a class="heading bg-lightBlue fg-white" href="#"><i class="icon-rocket"></i> 异常订单</a>
+    <div class="accordion span3 place-left margin5" data-role="accordion" id="sidebar" data-closeany="false" ng-controller="SideMenuCtrl">
+        <div ng-repeat="menu in MenuData" class="accordion-frame">
+            <a class="heading bg-lightBlue fg-white" href="#"><i class="icon-rocket"></i> {{menu.name}}</a>
             <div class="content" style="display: block;">
-                <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</p>
-            </div>
-        </div>
-        <div class="accordion-frame">
-            <a class="heading bg-lightBlue fg-white collapsed" href="#"><i class="icon-cog"></i> Item #2</a>
-            <div class="content" style="display: none;">
-                <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut.</p>
-            </div>
-        </div>
-        <div class="accordion-frame">
-            <a class="heading bg-lightBlue fg-white collapsed" href="#"><i class="icon-cart"></i> Item #3</a>
-            <div class="content" style="display: none;">
-                <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut.</p>
-                <button class="primary">Activate the account</button>
+                <table width="100%" class="">
+                    <tr ng-repeat="item in menu.items">
+                        <td>{{item.name}}</td>
+                        <td align="right">
+                            <button>99</button>
+                        </td>
+                    </tr>
+                </table>
             </div>
         </div>
     </div>

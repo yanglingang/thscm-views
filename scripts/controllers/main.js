@@ -21,7 +21,7 @@ app
 
 
 app.controller('TopMenuCtrl', ['$scope', '$http','$timeout', function($scope, $http, $timeout) {
-    $http.get('scripts/menu.json').
+    $http.get('scripts/api/top-menu.json').
     success(function(data, status, headers, config) {
         $scope.TopMenuData = data;
         $scope.$watch('TopMenuData', function() {
@@ -34,6 +34,21 @@ app.controller('TopMenuCtrl', ['$scope', '$http','$timeout', function($scope, $h
         return status;
     });
 }]);
+app.controller('SideMenuCtrl', ['$scope', '$http','$timeout', function($scope, $http, $timeout) {
+    $http.get('scripts/api/side-menu.json').
+    success(function(data, status, headers, config) {
+        $scope.MenuData = data;
+        $scope.$watch('MenuData', function() {
+            $timeout(function() {
+                
+            }, 1000);
+        });
+    }).
+    error(function(data, status, headers, config) {
+        return status;
+    });
+}]);
+
 app.controller("LineCtrl", ['$scope', '$timeout', function($scope, $timeout) {
     $scope.labels = ["January", "February", "March", "April", "May", "June", "July"];
     $scope.series = ['Series A', 'Series B'];
@@ -57,6 +72,7 @@ app.controller("LineCtrl", ['$scope', '$timeout', function($scope, $timeout) {
 function layout() {
         $('#main').css('width', $(window).width() - 240);
         $('#main').css('height', $(window).height() - 82);
+        $('#sidebar').css('height', $(window).height() - 60);
         $('#main_carouse').css('height', $(window).height() - 92);
     }
     /*jshint unused: false */
