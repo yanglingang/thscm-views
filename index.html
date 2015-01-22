@@ -11,17 +11,17 @@
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/Metro-UI-CSS/css/metro-bootstrap.css" />
     <link rel="stylesheet" href="bower_components/Metro-UI-CSS/css/metro-bootstrap-responsive.css" />
+    <link rel="stylesheet" href="bower_components/Metro-UI-CSS/min/iconFont.min.css" />
     <link rel="stylesheet" href="bower_components/angular-chart.js/dist/angular-chart.css" />
     <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
-    <link rel="stylesheet" href="styles/iconFont.min.css">
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
 </head>
 
-<body ng-app="vtoneWorldcomApp" class="metro">
+<body ng-app="vtoneWorldcomApp" class="metro" ng-controller="MainCtrl">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -36,12 +36,12 @@
                     <li>
                         <a class="input-control checkbox" href="#">
                             <label>
-                                <input type="checkbox" ng-model="sideBarSetting"/>
+                                <input type="checkbox" ng-click="changeSiderBarSetting()"/>
                                 <span class="check"></span> 左边菜单设定
                             </label>
                         </a>
                     </li>
-                    <li><a href="#">File Open</a>
+                    <li><a href="#"><i class="fa fa-camera-retro fa-lg"></i> File Open</a>
                     </li>
                     <li class="divider"></li>
                     <li><a href="#">Print...</a>
@@ -58,11 +58,11 @@
 
             <li ng-repeat="menu in TopMenuData" ng-class="{element: menu.items != 'null' || submenu.items.length==0}" style="font-weight:bold;">
                 <a href="#" data-toggle="dropdown" ng-class="{'dropdown-toggle': menu.items != 'null','element brand':menu.items == 'null'}">{{menu.menuName}}</a>
-                <ul class="dropdown-menu dark TopMenu" data-role="dropdown" data-effect='fade'>
+                <ul class="dropdown-menu TopMenu" data-role="dropdown" data-effect='fade'>
                     <li ng-repeat="submenu in menu.items">
                         <a href="#" ng-if="submenu.items != 'null' && submenu.items.length>0" data-toggle="dropdown" class="dropdown-toggle">{{submenu.menuName}}</a>
                         <a href="#" ng-if="submenu.items == 'null' || submenu.items.length==0">{{submenu.menuName}}</a>
-                        <ul ng-if="submenu.items != 'null' && submenu.items.length>0" class="dropdown-menu dark TopMenu" data-role="dropdown" data-effect='fade'>
+                        <ul ng-if="submenu.items != 'null' && submenu.items.length>0" class="dropdown-menu TopMenu" data-role="dropdown" data-effect='fade'>
                             <li ng-repeat="submenu2 in submenu.items">
                                 <a href="#">{{submenu2.menuName}}</a>
                             </li>
@@ -103,8 +103,8 @@
 
         </nav>
     </nav>
-    <div class="accordion span3 place-left margin5" data-role="accordion" id="sidebar" data-closeany="{{sideBarSetting}}" ng-controller="SideMenuCtrl">
-        <div ng-repeat="menu in MenuData" class="accordion-frame">
+    <div class="accordion span3 place-left margin5" data-role="accordion" id="sidebar" data-closeany="{{sideBarSetting}}">
+        <div ng-repeat="menu in SiderMenuData" class="accordion-frame">
             <a class="heading bg-lightBlue fg-white" href="#" style="font-size:14px;font-weight:bold;"><i class="{{menu.icon}}"></i> {{menu.name}}</a>
             <div class="content" style="display: block;">
                 <table width="100%" class="" style="font-size:14px;">

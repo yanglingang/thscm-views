@@ -8,19 +8,30 @@
  * Controller of the vtoneWorldcomApp
  */
 app
-    .controller('MainCtrl', function($scope) {
-        $scope.awesomeThings = [
-            'HTML5 Boilerplate',
-            'AngularJS',
-            'Karma'
-        ];
-    });
+    .controller('MainCtrl', ['$scope', '$http', '$timeout', function($scope, $http, $timeout) {
+        $scope.sideBarSetting = false;
+        $scope.changeSiderBarSetting = function() {
+            $scope.sideBarSetting = !$scope.sideBarSetting;
+            loadSiderMenuData();
+        }
+        loadSiderMenuData();
+
+        function loadSiderMenuData() {
+            $http.get('scripts/api/side-menu.json').
+            success(function(data, status, headers, config) {
+                $scope.SiderMenuData = data;
+            }).
+            error(function(data, status, headers, config) {
+                return status;
+            });
+        }
+    }]);
 /*jshint unused: false */
 
 // Stuff
 
 
-app.controller('TopMenuCtrl', ['$scope', '$http','$timeout', function($scope, $http, $timeout) {
+app.controller('TopMenuCtrl', ['$scope', '$http', '$timeout', function($scope, $http, $timeout) {
     $http.get('scripts/api/top-menu.json').
     success(function(data, status, headers, config) {
         $scope.TopMenuData = data;
@@ -33,25 +44,8 @@ app.controller('TopMenuCtrl', ['$scope', '$http','$timeout', function($scope, $h
     error(function(data, status, headers, config) {
         return status;
     });
-
-    $scope.sideBarSetting = false;
 }]);
-app.controller('SideMenuCtrl', ['$scope', '$http','$timeout', function($scope, $http, $timeout) {
-    $http.get('scripts/api/side-menu.json').
-    success(function(data, status, headers, config) {
-        $scope.MenuData = data;
-        $scope.$watch('MenuData', function() {
-            $timeout(function() {
-                
-            }, 1000);
-        });
-    }).
-    error(function(data, status, headers, config) {
-        return status;
-    });
 
-    $scope.sideBarSetting = false;
-}]);
 
 app.controller("LineCtrl", ['$scope', '$timeout', function($scope, $timeout) {
     $scope.labels = ["January", "February", "March", "April", "May", "June", "July"];

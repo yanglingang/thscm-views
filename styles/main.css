@@ -29,8 +29,14 @@
   left:230px;
 }
 
-
-
+.TopMenu{
+  font-size:14px;
+}
+.TopMenu li,.TopMenu a {
+  line-height: 20px;
+  margin:0px;
+  padding:0px;
+}
 .metro .panel .panel-header {
   font-size: 14px;
   line-height: 1.0rem;
