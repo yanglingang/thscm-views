@@ -103,13 +103,17 @@
 
         </nav>
     </nav>
-    <div class="accordion span3 place-left margin5" data-role="accordion" id="sidebar" data-closeany="{{sideBarSetting}}">
+    <div class="accordion span3 place-left margin5" data-role="accordion0" id="sidebar" data-closeany="{{sideBarSetting}}">
         <div ng-repeat="menu in SiderMenuData" class="accordion-frame">
-            <a class="heading bg-lightBlue fg-white" href="#" style="font-size:14px;font-weight:bold;"><i class="{{menu.icon}}"></i> {{menu.name}}</a>
+            <span class="heading bg-lightBlue" >
+                <a class="fg-white" href="#" style="font-size:14px;font-weight:bold;"><i class="{{menu.icon}}"></i> {{menu.name}}</a>
+                <a class="fg-white element place-right" href="#" ><i class="fa fa-spinner fa-spin"></i> </a>
+            </span>
+
             <div class="content" style="display: block;">
                 <table width="100%" class="" style="font-size:14px;">
                     <tr ng-repeat="item in menu.items">
-                        <td><i class="{{item.icon}}"></i> {{item.name}}</td>
+                        <td><i class="fa {{item.icon}} fa-fw"></i> {{item.name}}</td>
                         <td align="right">
                             <button>99</button>
                         </td>
