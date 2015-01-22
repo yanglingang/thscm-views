@@ -7,7 +7,7 @@
  * # MainCtrl
  * Controller of the vtoneWorldcomApp
  */
-angular.module('vtoneWorldcomApp')
+app
     .controller('MainCtrl', function($scope) {
         $scope.awesomeThings = [
             'HTML5 Boilerplate',
@@ -16,12 +16,16 @@ angular.module('vtoneWorldcomApp')
         ];
     });
 /*jshint unused: false */
-angular.module('vtoneWorldcomApp').controller('TopMenuCtrl', ['$scope', '$http', function($scope, $http) {
+
+// Stuff
+
+
+app.controller('TopMenuCtrl', ['$scope', '$http','$timeout', function($scope, $http, $timeout) {
     $http.get('scripts/menu.json').
     success(function(data, status, headers, config) {
         $scope.TopMenuData = data;
         $scope.$watch('TopMenuData', function() {
-            setTimeout(function() {
+            $timeout(function() {
                 $('.TopMenu').dropdown();
             }, 1000);
         });
@@ -30,7 +34,25 @@ angular.module('vtoneWorldcomApp').controller('TopMenuCtrl', ['$scope', '$http',
         return status;
     });
 }]);
-// Stuff
+app.controller("LineCtrl", ['$scope', '$timeout', function($scope, $timeout) {
+    $scope.labels = ["January", "February", "March", "April", "May", "June", "July"];
+    $scope.series = ['Series A', 'Series B'];
+    $scope.data = [
+        [65, 59, 80, 81, 56, 55, 40],
+        [28, 48, 40, 19, 86, 27, 90]
+    ];
+    $scope.onClick = function(points, evt) {
+        console.log(points, evt);
+    };
+    $timeout(function() {
+        $scope.labels = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+        $scope.data = [
+            [28, 48, 40, 19, 86, 27, 90],
+            [65, 59, 80, 81, 56, 55, 40]
+        ];
+        $scope.series = ['Series C', 'Series D'];
+    }, 3000);
+}]);
 
 function layout() {
         $('#main').css('width', $(window).width() - 240);

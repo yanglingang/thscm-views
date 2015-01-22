@@ -8,7 +8,7 @@
  *
  * Main module of the application.
  */
-angular
+var app = angular
   .module('vtoneWorldcomApp', [
     'ngAnimate',
     'ngAria',
@@ -17,7 +17,8 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'chart.js'
   ])
   .config(function ($routeProvider) {
     $routeProvider

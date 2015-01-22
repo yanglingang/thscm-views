@@ -11,6 +11,7 @@
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/Metro-UI-CSS/css/metro-bootstrap.css" />
     <link rel="stylesheet" href="bower_components/Metro-UI-CSS/css/metro-bootstrap-responsive.css" />
+    <link rel="stylesheet" href="bower_components/angular-chart.js/dist/angular-chart.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -29,7 +30,7 @@
     <nav class="navbar navigation-bar dark navbar-fixed-top">
         <nav class="navigation-bar-content" ng-controller="TopMenuCtrl">
             <div class="element">
-                <a class="dropdown-toggle" href="#">简明供应链管理</a>
+                <a class="dropdown-toggle" href="#">SE200</a>
                 <ul class="dropdown-menu dark" data-role="dropdown">
                     <li><a href="#">Main</a>
                     </li>
@@ -139,8 +140,11 @@
                     <div class="panel-header bg-lightBlue fg-white">
                         条件选择
                     </div>
-                    <div class="panel-content" style="display: block;">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                    <div class="panel-content" style="display: block;" ng-controller="LineCtrl">
+                        <div class="chart-container" style="width:400px;height:230px">
+                            <canvas id="line" class="chart chart-line" data="data" labels="labels" legend="true" series="series" click="onClick">
+                            </canvas>
+                        </div>
                     </div>
                 </div>
                 <div class="panel" data-role="panel">
@@ -218,6 +222,8 @@
     <script src="bower_components/angular-touch/angular-touch.js"></script>
     <script src="bower_components/jquery-ui/jquery-ui.js"></script>
     <script src="bower_components/Metro-UI-CSS/min/metro.min.js"></script>
+    <script src="bower_components/Chart.js/Chart.min.js"></script>
+    <script src="bower_components/angular-chart.js/dist/angular-chart.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
