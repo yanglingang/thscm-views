@@ -103,7 +103,7 @@
 
         </nav>
     </nav>
-    <div class="accordion span3 place-left margin5" data-role="accordion" id="sidebar" data-closeany="false" ng-controller="SideMenuCtrl">
+    <div class="accordion span3 place-left margin5" data-role="accordion" id="sidebar" data-closeany="{{sideBarSetting}}" ng-controller="SideMenuCtrl">
         <div ng-repeat="menu in MenuData" class="accordion-frame">
             <a class="heading bg-lightBlue fg-white" href="#" style="font-size:14px;font-weight:bold;"><i class="{{menu.icon}}"></i> {{menu.name}}</a>
             <div class="content" style="display: block;">

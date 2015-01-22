@@ -34,7 +34,7 @@ app.controller('TopMenuCtrl', ['$scope', '$http','$timeout', function($scope, $h
         return status;
     });
 
-    $scope.sideBarSetting = true;
+    $scope.sideBarSetting = false;
 }]);
 app.controller('SideMenuCtrl', ['$scope', '$http','$timeout', function($scope, $http, $timeout) {
     $http.get('scripts/api/side-menu.json').
@@ -49,6 +49,8 @@ app.controller('SideMenuCtrl', ['$scope', '$http','$timeout', function($scope, $
     error(function(data, status, headers, config) {
         return status;
     });
+
+    $scope.sideBarSetting = false;
 }]);
 
 app.controller("LineCtrl", ['$scope', '$timeout', function($scope, $timeout) {
