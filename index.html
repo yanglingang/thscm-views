@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="bower_components/Metro-UI-CSS/css/metro-bootstrap.css" />
     <link rel="stylesheet" href="bower_components/Metro-UI-CSS/css/metro-bootstrap-responsive.css" />
     <link rel="stylesheet" href="bower_components/angular-chart.js/dist/angular-chart.css" />
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -32,7 +33,13 @@
             <div class="element">
                 <a class="dropdown-toggle" href="#">SE200</a>
                 <ul class="dropdown-menu dark" data-role="dropdown">
-                    <li><a href="#"><i class="fa-edit"></i> Main</a>
+                    <li>
+                        <a class="input-control checkbox" href="#">
+                            <label>
+                                <input type="checkbox" ng-model="sideBarSetting"/>
+                                <span class="check"></span> 左边菜单设定
+                            </label>
+                        </a>
                     </li>
                     <li><a href="#">File Open</a>
                     </li>
@@ -49,7 +56,7 @@
             <a class="element brand" href="#"><span class="icon-home"></span></a>
             <span class="element-divider"></span>
 
-            <li ng-repeat="menu in TopMenuData" ng-class="{element: menu.items != 'null' || submenu.items.length==0}">
+            <li ng-repeat="menu in TopMenuData" ng-class="{element: menu.items != 'null' || submenu.items.length==0}" style="font-weight:bold;">
                 <a href="#" data-toggle="dropdown" ng-class="{'dropdown-toggle': menu.items != 'null','element brand':menu.items == 'null'}">{{menu.menuName}}</a>
                 <ul class="dropdown-menu dark TopMenu" data-role="dropdown" data-effect='fade'>
                     <li ng-repeat="submenu in menu.items">
@@ -69,8 +76,6 @@
                     <span class="icon-cog"></span>
                 </a>
                 <ul class="dropdown-menu place-right dark" data-role="dropdown">
-                    <li><a href="#">Products</a>
-                    </li>
                     <li><a href="#">Download</a>
                     </li>
                     <li><a href="#">Support</a>
@@ -100,11 +105,11 @@
     </nav>
     <div class="accordion span3 place-left margin5" data-role="accordion" id="sidebar" data-closeany="false" ng-controller="SideMenuCtrl">
         <div ng-repeat="menu in MenuData" class="accordion-frame">
-            <a class="heading bg-lightBlue fg-white" href="#"><i class="icon-rocket"></i> {{menu.name}}</a>
+            <a class="heading bg-lightBlue fg-white" href="#" style="font-size:14px;font-weight:bold;"><i class="{{menu.icon}}"></i> {{menu.name}}</a>
             <div class="content" style="display: block;">
-                <table width="100%" class="">
+                <table width="100%" class="" style="font-size:14px;">
                     <tr ng-repeat="item in menu.items">
-                        <td>{{item.name}}</td>
+                        <td><i class="{{item.icon}}"></i> {{item.name}}</td>
                         <td align="right">
                             <button>99</button>
                         </td>

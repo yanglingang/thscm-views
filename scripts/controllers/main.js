@@ -33,6 +33,8 @@ app.controller('TopMenuCtrl', ['$scope', '$http','$timeout', function($scope, $h
     error(function(data, status, headers, config) {
         return status;
     });
+
+    $scope.sideBarSetting = true;
 }]);
 app.controller('SideMenuCtrl', ['$scope', '$http','$timeout', function($scope, $http, $timeout) {
     $http.get('scripts/api/side-menu.json').

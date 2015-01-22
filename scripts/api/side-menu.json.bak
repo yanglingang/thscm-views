@@ -38,7 +38,7 @@
     }]
 },{
     "name": "销售审单任务",
-    "icon": " icon-clipboard-2",
+    "icon": " icon-puzzle",
     "items": [{
         "name": "异常销售订单"
     },{
@@ -54,7 +54,7 @@
     }]
 },{
     "name": "财务审核任务",
-    "icon": "  icon-user-3",
+    "icon": " icon-puzzle",
     "items": [{
         "name": "待财审销售订单"
     },{
@@ -70,7 +70,7 @@
     }]
 },{
     "name": "仓储打单任务",
-    "icon": " icon-printer",
+    "icon": " icon-puzzle",
     "items": [{
         "name": "待处理出库单"
     },{
