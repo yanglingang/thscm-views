@@ -19,6 +19,7 @@ app.filter('MianMneuFilter', function() {
     }
 });
 
+
 app.service("MetroService", ['$timeout', function($timeout) {
     this.render = function() {
         var c = $(".metro").html(),
@@ -47,6 +48,17 @@ app
             $scope.sideBarSetting = !$scope.sideBarSetting;
             loadSiderMenuData();
         };
+        $scope.TaskGroupData = {};
+        $scope.TaskGroupClick = function(name) {
+            $http.get('scripts/api/task_result.json').
+            success(function(data) {
+                $scope.TaskGroupData[name] = data;
+            }).
+            error(function(status) {
+                return status;
+            });
+        };
+
         loadSiderMenuData();
     }]);
 /*jshint unused: false */

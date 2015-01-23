@@ -1,161 +1,163 @@
 [{
     "name": "采购任务",
+    "name_en":"cgrw",
     "icon": " icon-clipboard-2",
     "items": [{
         "name": "预警商品",
-	"icon": "   fa-github"
-    },{
+        "icon": "   fa-github"
+    }, {
         "name": "待审核采购订单",
-	"icon": "   fa-github"
-    },{
-        "name":"待审核采购退单",
-	"icon": "   fa-github"
+        "icon": "   fa-github"
+    }, {
+        "name": "待审核采购退单",
+        "icon": "   fa-github"
     }]
-},{
+}, {
     "name": "到货任务",
+    "name_en":"dhrw",
     "icon": "icon-list",
     "items": [{
         "name": "预计到货订单",
-	"icon": "  fa-github"
-    },{
+        "icon": "  fa-github"
+    }, {
         "name": "待完成到货单",
-	"icon": "  fa-github"
+        "icon": "  fa-github"
     }]
-},{
+}, {
     "name": "验货任务",
     "icon": "  icon-eye",
     "items": [{
         "name": "待验货商品",
-	"icon": "  fa-github"
-    },{
+        "icon": "  fa-github"
+    }, {
         "name": "正常品验货单",
-	"icon": "  fa-github"
-    },{
+        "icon": "  fa-github"
+    }, {
         "name": "异常品验货单",
-	"icon": "  fa-github"
+        "icon": "  fa-github"
     }]
-},{
+}, {
     "name": "上架任务",
     "icon": " icon-move",
     "items": [{
         "name": "待上架商品",
-	"icon": "  fa-github"
-    },{
+        "icon": "  fa-github"
+    }, {
         "name": "待确认上架单",
-	"icon": "  fa-github"
-    },{
+        "icon": "  fa-github"
+    }, {
         "name": "已确认上架单",
-	"icon": "  fa-github"
+        "icon": "  fa-github"
     }]
-},{
+}, {
     "name": "销售审单任务",
     "role": "active",
     "icon": "icon-files",
     "items": [{
         "name": "异常销售订单",
-	"icon": "  fa-github"
-    },{
+        "icon": "  fa-github"
+    }, {
         "name": "待审核销售订单",
-	"icon": "  fa-github"
-    },{
+        "icon": "  fa-github"
+    }, {
         "name": "缺货销售订单",
-	"icon": "  fa-github"
-    },{
+        "icon": "  fa-github"
+    }, {
         "name": "待审核销售退单",
-	"icon": "  fa-github"
-    },{
+        "icon": "  fa-github"
+    }, {
         "name": "被拦截订单",
-	"icon": "  fa-github"
-    },{
+        "icon": "  fa-github"
+    }, {
         "name": "已出库待回写订单",
-	"icon": "  fa-github"
+        "icon": "  fa-github"
     }]
-},{
+}, {
     "name": "财务审核任务",
     "icon": "  icon-user-3",
     "items": [{
         "name": "待财审销售订单",
-	"icon": "  fa-github"
-    },{
+        "icon": "  fa-github"
+    }, {
         "name": "待财审销售退单",
-	"icon": "  fa-github"
-    },{
+        "icon": "  fa-github"
+    }, {
         "name": "待财审采购订单",
-	"icon": "  fa-github"
-    },{
+        "icon": "  fa-github"
+    }, {
         "name": "待财审采购退单",
-	"icon": "  fa-github"
-    },{
+        "icon": "  fa-github"
+    }, {
         "name": "待审核促销活动",
-	"icon": "  fa-github"
-    },{
+        "icon": "  fa-github"
+    }, {
         "name": "待审核新品",
-	"icon": "  fa-github"
+        "icon": "  fa-github"
     }]
-},{
+}, {
     "name": "仓储打单任务",
     "icon": " icon-printer",
     "items": [{
         "name": "待处理出库单",
-	"icon": "  fa-github"
-    },{
+        "icon": "  fa-github"
+    }, {
         "name": "待打印拣货单",
-	"icon": "  fa-github"
-    },{
+        "icon": "  fa-github"
+    }, {
         "name": "已打印拣货单",
-	"icon": "  fa-github"
+        "icon": "  fa-github"
     }]
-},{
+}, {
     "name": "仓储拣货任务",
     "icon": "  icon-share-2",
     "items": [{
         "name": "待拣货订单",
-	"icon": "  fa-github"
-    },{
+        "icon": "  fa-github"
+    }, {
         "name": "已复核出库单",
-	"icon": "  fa-github"
+        "icon": "  fa-github"
     }]
-},{
+}, {
     "name": "仓储复核任务",
     "icon": " icon-attachment",
     "items": [{
-       "name": "待复核出库单",
-	"icon": "  fa-github"
-    },{
-       "name": "已复核出库单",
-	"icon": "  fa-github"
-    },{
-       "name": "被拦截出库单",
-	"icon": "  fa-github"
+        "name": "待复核出库单",
+        "icon": "  fa-github"
+    }, {
+        "name": "已复核出库单",
+        "icon": "  fa-github"
+    }, {
+        "name": "被拦截出库单",
+        "icon": "  fa-github"
     }]
-},{
+}, {
     "name": "仓储包装任务",
     "icon": " icon-delicious",
     "items": [{
         "name": "待包装出库单",
-	"icon": "  fa-github"
-    },{
+        "icon": "  fa-github"
+    }, {
         "name": "已包装出库单",
-	"icon": "  fa-github"
+        "icon": "  fa-github"
     }]
-},{
+}, {
     "name": "仓储称重任务",
     "icon": " icon-busy",
     "items": [{
         "name": "待称重出库单",
-	"icon": "  fa-github"
-    },{
+        "icon": "  fa-github"
+    }, {
         "name": "已称重出库单",
-	"icon": "  fa-github"
+        "icon": "  fa-github"
     }]
-},{
+}, {
     "name": "仓储交接任务",
     "icon": " icon-twitter",
     "items": [{
         "name": "待交接出库单",
-	"icon": "  fa-github"
-    },{
+        "icon": "  fa-github"
+    }, {
         "name": "已交接出库单",
-	"icon": "  fa-github"
+        "icon": "  fa-github"
     }]
 }]

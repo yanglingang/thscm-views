@@ -106,7 +106,7 @@
     <div class="accordion span3 place-left margin5" data-role="accordion0" id="sidebar" data-closeany="{{sideBarSetting}}">
         <div ng-repeat="menu in SiderMenuData" class="accordion-frame">
             <span class="heading bg-lightBlue">
-                <a class="fg-white" href="#" style="font-size:14px;font-weight:bold;"><i class="{{menu.icon}}"></i> {{menu.name}}</a>
+                <a class="fg-white" href="#" style="font-size:14px;font-weight:bold;" ng-click="TaskGroupClick(menu.name_en)"><i class="{{menu.icon}}"></i> {{menu.name}}</a>
                 <a class="fg-white element place-right" href="#" ><i class="fa fa-spinner fa-spin"></i> </a>
             </span>
 
@@ -115,7 +115,7 @@
                     <tr ng-repeat="item in menu.items">
                         <td><i class="fa {{item.icon}} fa-fw"></i> {{item.name}}</td>
                         <td align="right">
-                            <button>99</button>
+                            <button>{{TaskGroupData[menu.name_en][$index]}}</button>
                         </td>
                     </tr>
                 </table>
@@ -139,24 +139,15 @@
         <div class="carousel" data-role="carousel" data-auto="false" data-interval="false" id="main_carouse">
 
             <div class="slide">
-                <div class="panel" data-role="panel">
-                    <div class="panel-header bg-lightBlue fg-white">
-                        异常订单
-                    </div>
-                    <div class="panel-content" style="display: block;" ng-controller="LineCtrl">
-                        <div class="chart-container" style="width:400px;height:230px">
-                            <canvas id="line" class="chart chart-line" data="data" labels="labels" legend="true" series="series" click="onClick">
-                            </canvas>
-                        </div>
-                    </div>
-                </div>
+
                 <div ng-repeat="item in SiderMenuData | MianMneuFilter" class="panel" data-role="panel">
                     <div class="panel-header bg-lightBlue fg-white">
                         {{item.name}} 99
                     </div>
                     <div class="panel-content" style="display: block;">
                         <div class="chart-container" style="width:400px;height:230px">
-                            {{item.name}}
+                            <canvas class="chart chart-line" data="data" labels="labels" legend="true" series="series" click="onClick">
+                            </canvas>
                         </div>
                     </div>
                 </div>
