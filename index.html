@@ -85,11 +85,6 @@
                 </ul>
             </div>
 
-
-
-
-
-
             <span class="element-divider place-right"></span>
             <a class="element place-right" href="#"><span class="icon-locked-2"></span></a>
 
@@ -107,7 +102,7 @@
         <div ng-repeat="menu in SiderMenuData" class="accordion-frame">
             <span class="heading bg-lightBlue">
                 <a class="fg-white" href="#" style="font-size:14px;font-weight:bold;" ng-click="TaskGroupClick(menu.name_en)"><i class="{{menu.icon}}"></i> {{menu.name}}</a>
-                <a class="fg-white element place-right" href="#" ><i class="fa fa-spinner fa-spin"></i> </a>
+                <a class="fg-white element place-right" href="#" ><i ng-class="TaskGroupData[menu.name_en].icon"></i> </a>
             </span>
 
             <div class="content" style="display: block;">
@@ -140,7 +135,7 @@
 
             <div class="slide">
 
-                <div ng-repeat="item in SiderMenuData | MianMneuFilter" class="panel" data-role="panel">
+                <div ng-repeat="item in MainMenuData" class="panel" data-role="panel">
                     <div class="panel-header bg-lightBlue fg-white">
                         {{item.name}} 99
                     </div>

@@ -8,17 +8,6 @@
  * Controller of the vtoneWorldcomApp
  */
 
-app.filter('MianMneuFilter', function() {
-    return function(json) {
-        for (var index in json) {
-            if (json[index].role == 'active') {
-                return json[index].items;
-            }
-        }
-        return [];
-    }
-});
-
 
 app.service("MetroService", ['$timeout', function($timeout) {
     this.render = function() {
@@ -31,12 +20,41 @@ app.service("MetroService", ['$timeout', function($timeout) {
     };
 }]);
 
+app.service("MainService", function() {
+    this.getActiveMainData = function(json) {
+        for (var index in json) {
+            if (json[index].role == 'active') {
+                return json[index].items;
+            }
+        }
+        return [];
+    };
+    this.getMainData = function(json, name) {
+        for (var index in json) {
+            if (json[index].name_en == name) {
+                return json[index].items;
+            }
+        }
+        return [];
+    };
+});
+
+
+app.filter('MianMneuFilter', ['MainService', function(MainService) {
+    return function(json) {
+        return MainService.getActiveMainData(json);
+    }
+}]);
+
 app
-    .controller('MainCtrl', ['$scope', '$http', 'MetroService', function($scope, $http, MetroService) {
+    .controller('MainCtrl', ['$scope', '$http', 'MetroService', 'MainService', function($scope, $http, MetroService, MainService) {
         function loadSiderMenuData() {
             $http.get('scripts/api/side-menu.json').
             success(function(data) {
                 $scope.SiderMenuData = data;
+
+                $scope.MainMenuData = MainService.getActiveMainData(data);
+
                 MetroService.render();
             }).
             error(function(status) {
@@ -48,16 +66,27 @@ app
             $scope.sideBarSetting = !$scope.sideBarSetting;
             loadSiderMenuData();
         };
+
+
         $scope.TaskGroupData = {};
         $scope.TaskGroupClick = function(name) {
+            if (angular.isUndefined($scope.TaskGroupData[name]))
+                $scope.TaskGroupData[name] = {};
+            $scope.TaskGroupData[name].icon = "fa fa-spinner fa-spin";
+
             $http.get('scripts/api/task_result.json').
             success(function(data) {
                 $scope.TaskGroupData[name] = data;
+                $scope.TaskGroupData[name].icon = "";
             }).
             error(function(status) {
+                $scope.TaskGroupData[name].icon = "";
                 return status;
             });
+            $scope.MainMenuData = MainService.getMainData($scope.SiderMenuData, name);
+            MetroService.render();
         };
+
 
         loadSiderMenuData();
     }]);
