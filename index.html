@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>SE200 - 简单高效的应链管理平台</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -31,12 +31,12 @@
     <nav class="navbar navigation-bar dark navbar-fixed-top">
         <nav class="navigation-bar-content" ng-controller="TopMenuCtrl">
             <div class="element">
-                <a class="dropdown-toggle" href="#">SE200</a>
+                <a class="dropdown-toggle" href="#">SE200供应链</a>
                 <ul class="dropdown-menu dark" data-role="dropdown">
                     <li>
                         <a class="input-control checkbox" href="#">
                             <label>
-                                <input type="checkbox" ng-click="changeSiderBarSetting()"/>
+                                <input type="checkbox" ng-click="changeSiderBarSetting()" />
                                 <span class="check"></span> 左边菜单设定
                             </label>
                         </a>
@@ -105,7 +105,7 @@
     </nav>
     <div class="accordion span3 place-left margin5" data-role="accordion0" id="sidebar" data-closeany="{{sideBarSetting}}">
         <div ng-repeat="menu in SiderMenuData" class="accordion-frame">
-            <span class="heading bg-lightBlue" >
+            <span class="heading bg-lightBlue">
                 <a class="fg-white" href="#" style="font-size:14px;font-weight:bold;"><i class="{{menu.icon}}"></i> {{menu.name}}</a>
                 <a class="fg-white element place-right" href="#" ><i class="fa fa-spinner fa-spin"></i> </a>
             </span>
@@ -141,7 +141,7 @@
             <div class="slide">
                 <div class="panel" data-role="panel">
                     <div class="panel-header bg-lightBlue fg-white">
-                        条件选择
+                        异常订单
                     </div>
                     <div class="panel-content" style="display: block;" ng-controller="LineCtrl">
                         <div class="chart-container" style="width:400px;height:230px">
@@ -150,20 +150,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="panel" data-role="panel">
+                <div ng-repeat="item in SiderMenuData | MianMneuFilter" class="panel" data-role="panel">
                     <div class="panel-header bg-lightBlue fg-white">
-                        查询结果
+                        {{item.name}} 99
                     </div>
                     <div class="panel-content" style="display: block;">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                    </div>
-                </div>
-                <div class="panel" data-role="panel">
-                    <div class="panel-header bg-lightBlue fg-white">
-                        明细信息
-                    </div>
-                    <div class="panel-content" style="display: block;">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                        <div class="chart-container" style="width:400px;height:230px">
+                            {{item.name}}
+                        </div>
                     </div>
                 </div>
             </div>

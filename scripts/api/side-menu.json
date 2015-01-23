@@ -49,6 +49,7 @@
     }]
 },{
     "name": "销售审单任务",
+    "role": "active",
     "icon": "icon-files",
     "items": [{
         "name": "异常销售订单",
