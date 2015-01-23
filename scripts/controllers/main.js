@@ -16,7 +16,7 @@ app.service("MetroService", ['$timeout', function($timeout) {
         $timeout(function() {
             a = $(".metro").html();
             c !== a && (c = a, $.Metro.initAll())
-        }, 1000);
+        }, 500);
     };
 }]);
 
@@ -45,15 +45,37 @@ app.filter('MianMneuFilter', ['MainService', function(MainService) {
         return MainService.getActiveMainData(json);
     }
 }]);
-
+// JSON.stringify($scope.MainMenuData[index])
 app
     .controller('MainCtrl', ['$scope', '$http', 'MetroService', 'MainService', function($scope, $http, MetroService, MainService) {
+        function loadMainChart() {
+            $scope.MainMenuData.chart = {};
+
+            for (var index in $scope.MainMenuData) {
+                $http.get('scripts/api/task_result_detail.json').
+                success(function(data) {
+                    for(var index  in $scope.MainMenuData ) {
+                        var name = $scope.MainMenuData[index].name;
+                        if(data.name==name) {
+                            $scope.MainMenuData[index].data = data.data;
+                            $scope.MainMenuData[index].labels = data.labels;
+                        }
+                    }
+                }).
+                error(function(status) {
+                    return status;
+                });
+            }
+        }
+
         function loadSiderMenuData() {
             $http.get('scripts/api/side-menu.json').
             success(function(data) {
                 $scope.SiderMenuData = data;
 
                 $scope.MainMenuData = MainService.getActiveMainData(data);
+
+                loadMainChart();
 
                 MetroService.render();
             }).
@@ -77,12 +99,17 @@ app
             $http.get('scripts/api/task_result.json').
             success(function(data) {
                 $scope.TaskGroupData[name] = data;
+
+                loadMainChart();
+
+
                 $scope.TaskGroupData[name].icon = "";
             }).
             error(function(status) {
                 $scope.TaskGroupData[name].icon = "";
                 return status;
             });
+
             $scope.MainMenuData = MainService.getMainData($scope.SiderMenuData, name);
             MetroService.render();
         };
