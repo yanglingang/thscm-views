@@ -9,11 +9,13 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/jquery-ui/themes/smoothness/jquery-ui.css" />
     <link rel="stylesheet" href="bower_components/Metro-UI-CSS/css/metro-bootstrap.css" />
     <link rel="stylesheet" href="bower_components/Metro-UI-CSS/css/metro-bootstrap-responsive.css" />
     <link rel="stylesheet" href="bower_components/Metro-UI-CSS/min/iconFont.min.css" />
     <link rel="stylesheet" href="bower_components/angular-chart.js/dist/angular-chart.css" />
     <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="bower_components/datatables/media/css/jquery.dataTables.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -110,7 +112,7 @@
                     <tr ng-repeat="item in menu.items">
                         <td><i class="fa {{item.icon}} fa-fw"></i> {{item.name}}</td>
                         <td align="right">
-                            <button>{{TaskGroupData[menu.name_en][$index]}}</button>
+                            <button ng-click="LoadIndexPage(menu.name_en)">{{TaskGroupData[menu.name_en][$index]}}</button>
                         </td>
                     </tr>
                 </table>
@@ -121,48 +123,35 @@
 
     <div id="super_nav" class="markers square">
         <div class="button-set" data-role="button-group">
-            <button onclick="javascript:moveMainCarouse(0)" class="active">首页</button>
-            <button onclick="javascript:moveMainCarouse(1)">One</button>
-            <button onclick="javascript:moveMainCarouse(2)">Two</button>
-            <button onclick="javascript:moveMainCarouse(3)">Three</button>
-            <button onclick="javascript:moveMainCarouse(4)">Four</button>
-            <button onclick="javascript:moveMainCarouse(5)">Five</button>
+            <button class="active">首页</button>
+            <button>One</button>
         </div>
     </div>
 
     <div id="main">
-        <div class="carousel" data-role="carousel" data-auto="false" data-interval="false" id="main_carouse">
-
-            <div class="slide">
-
-                <div ng-repeat="item in MainMenuData" class="panel" data-role="panel">
-                    <div class="panel-header bg-lightBlue fg-white">
-                        {{item.name}} 99
-                    </div>
-                    <div class="panel-content" style="display: block;">
-                        <div class="chart-container" style="width:400px;height:230px">
-                            <canvas id="line" class="chart chart-line" data="item.data" labels="item.labels" legend="false">
-                            </canvas>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="slide">
-                2
-            </div>
-            <div class="slide">
-                3
-            </div>
-            <div class="slide">
-                4
-            </div>
-            <div class="slide">
-                5
-            </div>
-            <div class="slide">
-                6
-            </div>
+        <div id="example_wrapper" class="dataTables_wrapper dt-jqueryui">
+            <table id="table_id" class="display">
+                <thead>
+                    <tr>
+                        <th>name</th>
+                        <th>salary</th>
+                        <th>office</th>
+                        <th>name</th>
+                        <th>salary</th>
+                        <th>office</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 
@@ -207,6 +196,8 @@
     <script src="bower_components/Metro-UI-CSS/min/metro.min.js"></script>
     <script src="bower_components/Chart.js/Chart.min.js"></script>
     <script src="bower_components/angular-chart.js/dist/angular-chart.js"></script>
+    <script src="bower_components/datatables/media/js/jquery.dataTables.js"></script>
+    <script src="bower_components/angular-datatables/dist/angular-datatables.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 

@@ -54,9 +54,9 @@ app
             for (var index in $scope.MainMenuData) {
                 $http.get('scripts/api/task_result_detail.json').
                 success(function(data) {
-                    for(var index  in $scope.MainMenuData ) {
+                    for (var index in $scope.MainMenuData) {
                         var name = $scope.MainMenuData[index].name;
-                        if(data.name==name) {
+                        if (data.name == name) {
                             $scope.MainMenuData[index].data = data.data;
                             $scope.MainMenuData[index].labels = data.labels;
                         }
@@ -100,7 +100,7 @@ app
             success(function(data) {
                 $scope.TaskGroupData[name] = data;
 
-                loadMainChart();
+                //loadMainChart();
 
 
                 $scope.TaskGroupData[name].icon = "";
@@ -113,8 +113,9 @@ app
             $scope.MainMenuData = MainService.getMainData($scope.SiderMenuData, name);
             MetroService.render();
         };
+        $scope.LoadIndexPage = function(name) {
 
-
+        };
         loadSiderMenuData();
     }]);
 /*jshint unused: false */
@@ -133,36 +134,15 @@ app.controller('TopMenuCtrl', ['$scope', '$http', '$timeout', 'MetroService', fu
     });
 }]);
 
-
-app.controller('LineCtrl', ['$scope', '$timeout', function($scope, $timeout) {
-    $scope.labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-    $scope.series = ['Series A', 'Series B'];
-    $scope.data = [
-        [65, 59, 80, 81, 56, 55, 40],
-        [28, 48, 40, 19, 86, 27, 90]
-    ];
-    $scope.onClick = function(points, evt) {
-        console.log(points, evt);
-    };
-    $timeout(function() {
-        $scope.labels = ['条码匹配', '退款', '省市区', '支付方式', '发货仓库', '快递方式', '黑会员'];
-        $scope.data = [
-            [10, 5, 4, 1, 0, 0, 0]
-        ];
-        $scope.series = ['异常订单'];
-    }, 3000);
-}]);
-
-
 function layout() {
         $('#main').css('width', $(window).width() - 240);
         $('#main').css('height', $(window).height() - 82);
         $('#sidebar').css('height', $(window).height() - 60);
-        $('#main_carouse').css('height', $(window).height() - 92);
+        //$('#main_carouse').css('height', $(window).height() - 92);
     }
     /*jshint unused: false */
 function moveMainCarouse(index) {
-        $('#main_carouse').find('.markers').find('a').eq(index).trigger('click');
+        //$('#main_carouse').find('.markers').find('a').eq(index).trigger('click');
     }
     // Stuff
 $(function($) {
