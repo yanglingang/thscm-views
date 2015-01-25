@@ -18,7 +18,8 @@ var app = angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'chart.js'
+    'chart.js',
+    'datatables'
   ])
   .config(function ($routeProvider) {
     $routeProvider

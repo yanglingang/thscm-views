@@ -9,13 +9,14 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/jquery-ui/themes/smoothness/jquery-ui.css" />
+    <link rel="stylesheet" href="bower_components/datatables/media/css/jquery.dataTables.css" />
+    <link rel="stylesheet" href="bower_components/Niceforms/niceforms-default.css" />
+    <link rel="stylesheet" href="bower_components/jquery-ui/themes/flick/jquery-ui.css" />
     <link rel="stylesheet" href="bower_components/Metro-UI-CSS/css/metro-bootstrap.css" />
     <link rel="stylesheet" href="bower_components/Metro-UI-CSS/css/metro-bootstrap-responsive.css" />
     <link rel="stylesheet" href="bower_components/Metro-UI-CSS/min/iconFont.min.css" />
     <link rel="stylesheet" href="bower_components/angular-chart.js/dist/angular-chart.css" />
     <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
-    <link rel="stylesheet" href="bower_components/datatables/media/css/jquery.dataTables.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -58,7 +59,7 @@
             <a class="element brand" href="#"><span class="icon-home"></span></a>
             <span class="element-divider"></span>
 
-            <li ng-repeat="menu in TopMenuData" ng-class="{element: menu.items != 'null' || submenu.items.length==0}" style="font-weight:bold;">
+            <li ng-repeat="menu in TopMenuData" ng-class="{element: menu.items != 'null' || submenu.items.length==0}">
                 <a href="#" data-toggle="dropdown" ng-class="{'dropdown-toggle': menu.items != 'null','element brand':menu.items == 'null'}">{{menu.menuName}}</a>
                 <ul class="dropdown-menu TopMenu" data-role="dropdown" data-effect='fade'>
                     <li ng-repeat="submenu in menu.items">
@@ -102,13 +103,13 @@
     </nav>
     <div class="accordion span3 place-left margin5" data-role="accordion0" id="sidebar" data-closeany="{{sideBarSetting}}">
         <div ng-repeat="menu in SiderMenuData" class="accordion-frame">
-            <span class="heading bg-lightBlue">
-                <a class="fg-white" href="#" style="font-size:14px;font-weight:bold;" ng-click="TaskGroupClick(menu.name_en)"><i class="{{menu.icon}}"></i> {{menu.name}}</a>
+            <span class="heading bg-gray">
+                <a class="fg-white" href="#" style="font-size:14px;" ng-click="TaskGroupClick(menu.name_en)"><i class="{{menu.icon}}"></i> {{menu.name}}</a>
                 <a class="fg-white element place-right" href="#" ><i ng-class="TaskGroupData[menu.name_en].icon"></i> </a>
             </span>
 
             <div class="content" style="display: block;">
-                <table width="100%" class="" style="font-size:14px;">
+                <table width="100%" class="" style="font-size:14px;background-color:transparent">
                     <tr ng-repeat="item in menu.items">
                         <td><i class="fa {{item.icon}} fa-fw"></i> {{item.name}}</td>
                         <td align="right">
@@ -129,30 +130,7 @@
     </div>
 
     <div id="main">
-        <div id="example_wrapper" class="dataTables_wrapper dt-jqueryui">
-            <table id="table_id" class="display">
-                <thead>
-                    <tr>
-                        <th>name</th>
-                        <th>salary</th>
-                        <th>office</th>
-                        <th>name</th>
-                        <th>salary</th>
-                        <th>office</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+       <table id="foobar" class="display" datatable="" dt-options="dtOptions" dt-columns="dtColumns"></table>
     </div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -183,6 +161,8 @@
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/datatables/media/js/jquery.dataTables.js"></script>
+    <script src="bower_components/Niceforms/niceforms.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/angular-aria/angular-aria.js"></script>
@@ -196,7 +176,6 @@
     <script src="bower_components/Metro-UI-CSS/min/metro.min.js"></script>
     <script src="bower_components/Chart.js/Chart.min.js"></script>
     <script src="bower_components/angular-chart.js/dist/angular-chart.js"></script>
-    <script src="bower_components/datatables/media/js/jquery.dataTables.js"></script>
     <script src="bower_components/angular-datatables/dist/angular-datatables.js"></script>
     <!-- endbower -->
     <!-- endbuild -->

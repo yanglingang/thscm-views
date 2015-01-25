@@ -47,7 +47,7 @@ app.filter('MianMneuFilter', ['MainService', function(MainService) {
 }]);
 // JSON.stringify($scope.MainMenuData[index])
 app
-    .controller('MainCtrl', ['$scope', '$http', 'MetroService', 'MainService', function($scope, $http, MetroService, MainService) {
+    .controller('MainCtrl', ['$scope', '$http', 'MetroService', 'MainService', 'DTOptionsBuilder', 'DTColumnBuilder', function($scope, $http, MetroService, MainService, DTOptionsBuilder, DTColumnBuilder) {
         function loadMainChart() {
             $scope.MainMenuData.chart = {};
 
@@ -117,7 +117,23 @@ app
 
         };
         loadSiderMenuData();
+
+        function rowCallback(nRow, aData, iDisplayIndex, iDisplayIndexFull) {
+            console.log(aData);
+            return nRow;
+        }
+        $scope.dtOptions = DTOptionsBuilder.newOptions()
+            .withOption('fnRowCallback', rowCallback);
+
+
+
+        $scope.dtColumns = [
+            DTColumnBuilder.newColumn('foo').withOption('sContentPadding', 'mmm')
+        ];
     }]);
+
+
+
 /*jshint unused: false */
 
 // Stuff
